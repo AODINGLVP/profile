@@ -8,25 +8,34 @@ import projects from "../data/projects.json";
 <BaseLayout>
   <section class="hero panel">
     <div>
-      <p class="eyebrow">作品集</p>
+      <p class="eyebrow">Game Programming Portfolio</p>
       <h1>{siteConfig.name}</h1>
-      <p class="bio">{siteConfig.bio}</p>
+      <p class="bio">
+        华威大学游戏工程硕士，专注于游戏客户端开发与图形技术。主要使用 C++、UE5 和 DirectX 进行开发，
+        关注渲染优化、游戏引擎系统以及实时图形技术。
+      </p>
       <div class="hero-links">
         <a href={siteConfig.githubUrl} target="_blank" rel="noreferrer">GitHub</a>
         <a href={siteConfig.bilibiliUrl} target="_blank" rel="noreferrer">Bilibili</a>
       </div>
     </div>
     <div class="hero-note">
-      <p class="eyebrow">项目展示</p>
-      <p class="section-copy">这里直接展示全部项目。每个卡片都有封面图，点击后会进入独立详情页查看完整介绍、技术细节和视频链接。</p>
+      <p class="eyebrow">Projects</p>
+      <p class="section-copy">
+        本页面展示我的主要游戏开发项目，包括 UE5 游戏系统开发、DirectX 12 渲染演示以及软件光栅化器优化等。
+        每个项目页面包含技术实现说明、核心功能介绍以及相关演示视频。
+      </p>
     </div>
   </section>
 
   <section class="home-section">
     <div class="section-heading">
-      <p class="eyebrow">全部项目</p>
-      <h2 class="section-title">面向中文访问者的项目展示首页。</h2>
-      <p class="section-copy">项目数据集中维护在 `src/data/projects.json`，封面图放在 `public/projects`，后续继续扩展也很方便。</p>
+      <p class="eyebrow">Projects</p>
+      <h2 class="section-title">Game Programming & Graphics Projects</h2>
+      <p class="section-copy">
+        这些项目主要围绕游戏客户端开发与图形技术，包括 UE5 Gameplay Ability System 战斗系统、
+        DirectX 12 渲染演示项目以及 CPU 软件光栅化器性能优化等。
+      </p>
     </div>
 
     <div class="project-grid">
