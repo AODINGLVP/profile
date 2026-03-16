@@ -1,0 +1,213 @@
+﻿---
+import { siteConfig } from "../consts";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${siteConfig.name} | ${siteConfig.title}`,
+  description = siteConfig.bio
+} = Astro.props;
+
+const basePath = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={`${basePath}favicon.svg`} />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href={basePath}>{siteConfig.name}</a>
+        <nav class="site-nav" aria-label="主导航">
+          <a href={basePath}>首页</a>
+          <a href={`${basePath}projects`}>项目</a>
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <p>基于 Astro 构建，已适配 GitHub Pages 部署。</p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: dark;
+    --bg: #07111f;
+    --bg-accent: radial-gradient(circle at top, rgba(47, 129, 247, 0.18), transparent 30%), linear-gradient(180deg, #0a1627 0%, #040a14 100%);
+    --surface: rgba(10, 20, 36, 0.82);
+    --border: rgba(148, 163, 184, 0.2);
+    --text: #e5eefc;
+    --muted: #99a8c3;
+    --accent: #66b3ff;
+    --accent-strong: #9fd0ff;
+    --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    --radius: 22px;
+    --radius-sm: 16px;
+    --max-width: 1120px;
+    --font-sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background: var(--bg-accent), var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--accent-strong);
+  }
+
+  img,
+  iframe {
+    display: block;
+    max-width: 100%;
+  }
+
+  .page-shell {
+    width: min(100% - 2rem, var(--max-width));
+    margin: 0 auto;
+    padding: 1.25rem 0 3rem;
+  }
+
+  .site-header,
+  .site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 1rem;
+    z-index: 10;
+    margin-bottom: 2rem;
+    padding: 1rem 1.2rem;
+    background: rgba(7, 17, 31, 0.72);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow);
+  }
+
+  .brand {
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .site-nav a {
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .site-nav a:hover {
+    color: var(--text);
+  }
+
+  .site-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+
+  .eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--accent-strong);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+  }
+
+  .section-title {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    line-height: 1.1;
+  }
+
+  .section-copy {
+    margin: 0;
+    max-width: 66ch;
+    color: var(--muted);
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    margin: 1rem 0 0;
+    list-style: none;
+  }
+
+  .tag-list li {
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(102, 179, 255, 0.12);
+    border: 1px solid rgba(102, 179, 255, 0.2);
+    color: var(--accent-strong);
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 720px) {
+    .page-shell {
+      width: min(100% - 1rem, var(--max-width));
+      padding-top: 0.75rem;
+    }
+
+    .site-header,
+    .site-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .site-header {
+      border-radius: 28px;
+    }
+  }
+</style>
