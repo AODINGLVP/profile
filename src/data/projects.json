@@ -5,8 +5,8 @@
     "description": "使用 C++ 与 DirectX 12 实现的第一人称渲染演示项目，构建多条渲染管线并实现骨骼动画、顶点动画、UI 与粒子效果。",
     "techStack": ["C++", "DirectX 12", "HLSL", "Computer Graphics"],
     "githubLink": "https://github.com/AODINGLVP/newworld.git",
-    "bilibiliLink": "https://www.bilibili.com/video/BV1qGc6z8E9P/?spm_id_from=333.1007.tianma.2-2-4.click",
-    "image": "/projects/newworld-cover.svg",
+    "bilibiliLink": "https://www.bilibili.com/video/BV12cwDzrEie/?vd_source=63db291409e83ae4cab39b500fc134da",
+    "image": "/projects/directx12.png",
     "content": [
       "该项目基于 C++ 与 DirectX 12 实现一个第一人称渲染演示程序，搭建完整的实时渲染流程与基础渲染框架。",
       "在功能方面实现了顶点动画、骨骼动画、UI 渲染与粒子系统，并通过实例化渲染优化大规模相似物体的绘制效率，减少 CPU Draw Call 开销。",
@@ -21,7 +21,7 @@
     "techStack": ["C++", "AVX2 SIMD", "Multithreading", "Computer Graphics"],
     "githubLink": "https://github.com/AODINGLVP/rasterizer_optimization.git",
     "bilibiliLink": "",
-    "image": "/projects/rasterizer-cover.svg",
+    "image": "/projects/BEST RASTERIZER TIMING RESULTS.png",
     "content": [
       "该项目针对 CPU 软件光栅化器的性能瓶颈进行系统优化，重点提升三角形光栅化阶段的计算效率。",
       "重构三角形光栅化流程，引入 Edge Function 增量计算，将像素级重复乘法运算转换为加法更新，提高 CPU 执行效率。",
@@ -38,8 +38,8 @@
     "description": "基于 Unreal Engine 5 Gameplay Ability System (GAS) 构建的动作 RPG 战斗原型，实现技能系统、属性系统与 AI 行为逻辑。",
     "techStack": ["Unreal Engine 5", "C++", "Gameplay Ability System", "Behavior Tree", "EQS"],
     "githubLink": "https://github.com/AODINGLVP/Warrior.git",
-    "bilibiliLink": "",
-    "image": "/projects/ue5-cover.svg",
+    "bilibiliLink": "https://www.bilibili.com/video/BV1RywSzpEVu/?vd_source=63db291409e83ae4cab39b500fc134da",
+    "image": "/projects/warrior.png",
     "content": [
       "该项目基于 Unreal Engine 5 的 Gameplay Ability System (GAS) 构建角色战斗系统框架。",
       "通过 Ability、AttributeSet 与 GameplayTag 组织战斗逻辑，实现技能释放、状态变化与战斗事件驱动。",
