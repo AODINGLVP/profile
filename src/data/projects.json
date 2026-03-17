@@ -5,7 +5,7 @@
     "description": "使用 C++ 与 DirectX 12 实现的第一人称渲染演示项目，构建多条渲染管线并实现骨骼动画、顶点动画、UI 与粒子效果。",
     "techStack": ["C++", "DirectX 12", "HLSL", "Computer Graphics"],
     "githubLink": "https://github.com/AODINGLVP/newworld.git",
-    "bilibiliLink": "https://www.bilibili.com/video/BV12cwDzrEie/?vd_source=63db291409e83ae4cab39b500fc134da",
+    "bilibiliLink": "https://www.bilibili.com/video/BV1RywSzpEVu/?vd_source=63db291409e83ae4cab39b500fc134da",
     "image": "/projects/directx12.png",
     "content": [
       "该项目基于 C++ 与 DirectX 12 实现一个第一人称渲染演示程序，搭建完整的实时渲染流程与基础渲染框架。",
@@ -38,7 +38,7 @@
     "description": "基于 Unreal Engine 5 Gameplay Ability System (GAS) 构建的动作 RPG 战斗原型，实现技能系统、属性系统与 AI 行为逻辑。",
     "techStack": ["Unreal Engine 5", "C++", "Gameplay Ability System", "Behavior Tree", "EQS"],
     "githubLink": "https://github.com/AODINGLVP/Warrior.git",
-    "bilibiliLink": "https://www.bilibili.com/video/BV1RywSzpEVu/?vd_source=63db291409e83ae4cab39b500fc134da",
+    "bilibiliLink": "https://www.bilibili.com/video/BV12cwDzrEie/?vd_source=63db291409e83ae4cab39b500fc134da",
     "image": "/projects/warrior.png",
     "content": [
       "该项目基于 Unreal Engine 5 的 Gameplay Ability System (GAS) 构建角色战斗系统框架。",
