@@ -47,5 +47,21 @@
       "采用 C++ 与 Blueprint 混合开发实现技能触发、Buff/Debuff 状态效果、伤害计算与技能冷却系统。",
       "基于 Behavior Tree 构建 AI 决策逻辑，并结合 Navigation System 与 Environment Query System (EQS) 实现环境查询与动态寻路。"
     ]
+  },
+  {
+    "slug": "serious-jelly-battle",
+    "title": "Serious Jelly Battle 3D 布阵自动战斗游戏",
+    "description": "基于 Unreal Engine 5.4 C++ 开发的本地单人 3D 俯视角布阵自动战斗游戏，围绕史莱姆军团搭建完整战斗小循环。",
+    "techStack": ["Unreal Engine 5.4", "C++", "Gameplay Ability System", "AI & Navigation", "Spine"],
+    "githubLink": "https://github.com/SEEDSeasun/SeriousJellyBattle",
+    "bilibiliLink": "https://www.bilibili.com/video/BV1fXeW69EHr/?",
+    "image": "/projects/slime-cover.jpg",
+    "content": [
+      "《Serious Jelly Battle》是一款本地单人 3D 俯视角布阵自动战斗游戏。玩家选择能力各异的果冻单位，在起伏战场上完成部署；战斗开始后，单位会自主寻路、寻找敌人并执行攻击。",
+      "项目以 SpawnManager 为核心组织战斗小循环，整合对象池、阵营与部署区域、金币消耗、部署和战斗阶段、胜负判定、相机控制以及战后结算，并保持所有战斗状态在本地运行。",
+      "使用 Unreal Engine Gameplay Ability System 组织属性、技能和战斗事件，支持剑、弓、盾、长矛、治疗、召唤、分裂、旋风、魅惑以及元素附加等差异化能力。",
+      "AI 采用 Behavior Tree 与 C++ 行为后备路径结合的方式，并接入 NavMesh、动态寻路和 3D 地形高度处理，使单位能够在真实战场地形上移动、索敌和交战。",
+      "项目还整合 Spine、骨骼果冻、Chaos Flesh、材质和 VFX 表现，并通过自动化测试、战斗 Smoke Test 与编辑器工具持续验证战斗流程和资源配置。"
+    ]
   }
 ]
