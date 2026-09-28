@@ -1,5 +1,22 @@
 ﻿[
   {
+    "slug": "level2-gas-fps-demo",
+    "title": "Level2 GAS 技能枪战 Demo",
+    "description": "基于 Unreal Engine 5.4 开发的第一人称枪战 Demo，在完整的射击、换弹与武器切换基础上加入角色技能、战斗无人机、Boss 阶段和区域刷怪系统。",
+    "techStack": ["Unreal Engine 5.4", "C++", "Gameplay Ability System", "FPS", "AI & Behavior Tree"],
+    "githubLink": "",
+    "bilibiliLink": "https://www.bilibili.com/video/BV139a56LEX5/",
+    "image": "/projects/level2-cover.jpg",
+    "content": [
+      "Level2 是一款以第一人称枪战为核心的单人战斗 Demo。玩家可以使用冲锋枪与霰弹枪进行射击、换弹和武器切换，并在连续开火时获得动态准星扩散与镜头反馈，形成完整的基础枪械操作循环。",
+      "项目基于 Unreal Engine 5.4，使用 C++ 与 Blueprint 混合开发，并通过 Gameplay Ability System 统一组织射击、换弹、奔跑、跳跃、蹲伏、手雷、受击、死亡与复活等角色和武器行为。武器装备时会动态授予对应 Ability 与输入映射，切换武器时同步移除旧能力。",
+      "在常规枪战之外设计了多种主动技能，包括短时无敌、机动技能、投掷攻击无人机与脉冲无人机。无人机拥有独立的属性、弹药、冷却和技能标签，可以跟随玩家、搜索敌人、射击、释放脉冲或执行自毁攻击。",
+      "敌人系统使用 AI Perception、Behavior Tree 与 Blackboard 组织感知、追踪和远程攻击。Boss 额外包含生命值阶段判断、二阶段状态与减伤逻辑，使战斗能够从普通遭遇逐步过渡到阶段化首领战。",
+      "关卡采用区域与配置驱动的刷怪系统，通过 Spawn Region、Spawn Profile、触发器和脚本化刷怪对象管理敌人类型、数量与出现时机；Waypoint 子系统用于维护关卡导航目标和战斗流程节点。",
+      "UI 部分实现生命值、弹药、准星和 Boss 状态显示；投射物体系覆盖普通子弹、霰弹、手雷与 Boss 能量球，并结合 Gameplay Effect 处理伤害、弹药消耗、冷却和角色状态。"
+    ]
+  },
+  {
     "slug": "wm9m6-card-strategy-demo",
     "title": "WM9M6 建筑卡牌轻度策略游戏",
     "description": "融合 Roguelike 随机构筑、建筑卡牌与自动战斗的轻度策略游戏。玩家通过抽取并替换建筑组织经济与出兵体系，让双方军队自动推进并摧毁敌方核心。",

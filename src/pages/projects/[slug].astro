@@ -35,7 +35,7 @@ const bilibiliEmbedUrl = getBilibiliEmbedUrl(project.bilibiliLink);
           {project.techStack.map((item) => <li>{item}</li>)}
         </ul>
         <div class="action-row">
-          <a href={project.githubLink} target="_blank" rel="noreferrer">GitHub 仓库</a>
+          {project.githubLink && <a href={project.githubLink} target="_blank" rel="noreferrer">GitHub 仓库</a>}
           {project.bilibiliLink && <a href={project.bilibiliLink} target="_blank" rel="noreferrer">Bilibili 视频</a>}
           {hasPlan && <a href={`${basePath}projects/${project.slug}/plan/`}>游戏策划案</a>}
         </div>
@@ -68,7 +68,7 @@ const bilibiliEmbedUrl = getBilibiliEmbedUrl(project.bilibiliLink);
         )}
 
         <div class="side-links">
-          <a href={project.githubLink} target="_blank" rel="noreferrer">查看代码</a>
+          {project.githubLink && <a href={project.githubLink} target="_blank" rel="noreferrer">查看代码</a>}
           {project.bilibiliLink ? (
             <a href={project.bilibiliLink} target="_blank" rel="noreferrer">打开原视频</a>
           ) : (
