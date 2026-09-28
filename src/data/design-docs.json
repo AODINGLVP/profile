@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "total-war-expansion-plan",
+    "title": "《总体战》扩充游戏策划案",
+    "description": "以 WM9M6 的建筑卡牌与自动战斗为基础，扩展出二战题材、六边格建造、铁路物流、占领区经营和前线推进系统。",
+    "techStack": ["游戏策划案", "Roguelike", "六边格建造", "铁路物流", "自动战斗"],
+    "image": "/projects/total-war-plan-cover.svg",
+    "href": "projects/wm9m6-card-strategy-demo/plan/",
+    "category": "Game Design Document",
+    "linkLabel": "阅读策划案"
+  }
+]

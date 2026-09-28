@@ -3,14 +3,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import projects from "../data/projects.json";
 import analyses from "../data/analyses.json";
+import designDocs from "../data/design-docs.json";
 
 const featuredOrder = [
   "serious-jelly-battle",
   "no-orcs-system-analysis",
   "wm9m6-card-strategy-demo",
+  "total-war-expansion-plan",
   "level2-gas-fps-demo"
 ];
-const portfolioItems = [...projects, ...analyses].sort((a, b) => {
+const portfolioItems = [...projects, ...analyses, ...designDocs].sort((a, b) => {
   const aIndex = featuredOrder.indexOf(a.slug);
   const bIndex = featuredOrder.indexOf(b.slug);
   return (aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex)

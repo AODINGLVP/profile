@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">总体战扩充游戏策划案封面</title>
+  <desc id="desc">由六边格、铁路和前线节点组成的深蓝色游戏策划案封面</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.58" stop-color="#102b45"/>
+      <stop offset="1" stop-color="#183b57"/>
+    </linearGradient>
+    <linearGradient id="route" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6eb9ff"/>
+      <stop offset="1" stop-color="#f2b84b"/>
+    </linearGradient>
+    <pattern id="hexes" width="104" height="90" patternUnits="userSpaceOnUse">
+      <path d="M26 2h52l26 43-26 43H26L0 45z" fill="none" stroke="#8cc8ff" stroke-opacity=".12" stroke-width="2"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#background)"/>
+  <rect width="1600" height="900" fill="url(#hexes)"/>
+  <circle cx="1320" cy="190" r="310" fill="#3a86c5" opacity=".08"/>
+  <circle cx="1450" cy="790" r="360" fill="#f2b84b" opacity=".06"/>
+
+  <g opacity=".8">
+    <path d="M850 650C990 560 1040 400 1180 340s255-24 370-120" fill="none" stroke="#07111f" stroke-width="30"/>
+    <path d="M850 650C990 560 1040 400 1180 340s255-24 370-120" fill="none" stroke="url(#route)" stroke-width="10"/>
+    <path d="M907 617l-14-25m55-14l-15-26m58-22l-20-22m59-34l-23-19m61-36l-24-17m62-33l-17-25m64-20l-8-28m64 13l4-29m60 13l9-28m58-6l17-26" stroke="#dbeeff" stroke-width="7" opacity=".6"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <g transform="translate(925 600)">
+      <path d="M0-52l45 26v52L0 52-45 26v-52z" fill="#173f60" stroke="#7cc3ff" stroke-width="5"/>
+      <circle r="13" fill="#7cc3ff"/>
+    </g>
+    <g transform="translate(1185 330)">
+      <path d="M0-64l55 32v64L0 64-55 32v-64z" fill="#204d68" stroke="#9fd3ff" stroke-width="5"/>
+      <rect x="-18" y="-18" width="36" height="36" rx="5" fill="#9fd3ff"/>
+    </g>
+    <g transform="translate(1470 245)">
+      <path d="M0-72l62 36v72L0 72-62 36v-72z" fill="#624a20" stroke="#f2b84b" stroke-width="6"/>
+      <path d="M-24 19h48V5h-8v-28h-32V5h-8z" fill="#f2b84b"/>
+    </g>
+  </g>
+
+  <g transform="translate(110 150)">
+    <text x="0" y="0" fill="#78bfff" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700" letter-spacing="5">WM9M6 EXPANSION DESIGN</text>
+    <text x="0" y="145" fill="#f4f8fc" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="126" font-weight="800">总体战</text>
+    <text x="5" y="225" fill="#c8d8e8" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="42">建筑卡牌 · 铁路物流 · 前线推进</text>
+    <rect x="5" y="280" width="260" height="60" rx="30" fill="#6eb9ff" fill-opacity=".13" stroke="#6eb9ff" stroke-opacity=".55"/>
+    <text x="135" y="321" text-anchor="middle" fill="#ddecfa" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="27" font-weight="700">策划案 v1.8</text>
+  </g>
+
+  <text x="110" y="800" fill="#9fb4c8" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="25" letter-spacing="3">ROGUELIKE · HEX BUILDING · AUTO BATTLE</text>
+</svg>

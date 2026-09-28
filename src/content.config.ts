@@ -7,7 +7,10 @@ const plans = defineCollection({
     title: z.string(),
     version: z.string(),
     updatedAt: z.string(),
-    status: z.string().optional()
+    status: z.string().optional(),
+    relationship: z.string().optional(),
+    sourceDocument: z.string().optional(),
+    sourceDocumentLabel: z.string().optional()
   })
 });
 
