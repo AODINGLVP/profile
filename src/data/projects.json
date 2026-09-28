@@ -1,5 +1,22 @@
 ﻿[
   {
+    "slug": "wm9m6-card-strategy-demo",
+    "title": "WM9M6 建筑卡牌轻度策略游戏",
+    "description": "融合 Roguelike 随机构筑、建筑卡牌与自动战斗的轻度策略游戏。玩家通过抽取并替换建筑组织经济与出兵体系，让双方军队自动推进并摧毁敌方核心。",
+    "techStack": ["Unreal Engine 5.7", "C++", "Gameplay Ability System", "Multiplayer", "Card Building"],
+    "githubLink": "https://github.com/AODINGLVP/wm9m6",
+    "bilibiliLink": "https://www.bilibili.com/video/BV1VUa56UEYV/",
+    "image": "/projects/wm9m6-cover.jpg",
+    "content": [
+      "WM9M6 是一款融合 Roguelike 随机构筑、建筑卡牌与自动战斗的轻度策略游戏。玩家从随机出现的建筑卡牌中进行选择，在己方地块上规划经济、生产和强化建筑，逐步形成一套能够持续出兵的战场体系。",
+      "核心循环围绕抽卡、建造、生产与对战展开：建筑会根据类型、等级、位置和组合词条提供经济收益、缩短生产时间或强化单位属性；单位生成后自动向敌方阵地推进、索敌并攻击，直至一方核心防御塔被摧毁。",
+      "项目使用 Unreal Engine 5.7，以 C++ 与 Blueprint 混合开发，并通过 Gameplay Ability System 组织建筑效果、单位属性、技能、伤害和战斗事件。建筑、单位与能力数据由 DataAsset 驱动，方便扩展新卡牌、兵种及构筑词条。",
+      "对战部分采用服务器权威架构：客户端负责输入、镜头与 UI，服务器负责资源扣除、建筑替换、单位生成、伤害结算和胜负判断；建筑表现、生产进度和关键状态通过 Replication、RepNotify 与 RPC 同步。",
+      "为支持较多单位同时交战，SpawnManager 集中维护单位缓存和空间网格，并按时间间隔分批执行网格更新、目标搜索与推进检查；单位使用 CharacterMovement 与 RVO Avoidance 完成移动和基础避障。",
+      "战斗系统包含坦克、火炮、导弹与反导等单位逻辑。火箭支持目标追踪、范围伤害和 Gameplay Cue 表现，反导单位会从活动火箭队列中筛选敌方目标并尝试拦截；界面还提供卡牌商店、建筑提示、生产进度、战场小地图与游戏速度控制。"
+    ]
+  },
+  {
     "slug": "dx12-fps-rendering-demo",
     "title": "DirectX 12 第一人称射击渲染演示项目",
     "description": "使用 C++ 与 DirectX 12 实现的第一人称渲染演示项目，构建多条渲染管线并实现骨骼动画、顶点动画、UI 与粒子效果。",

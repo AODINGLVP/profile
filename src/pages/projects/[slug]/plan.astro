@@ -1,0 +1,206 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import projects from "../../../data/projects.json";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const plans = await getCollection("plans");
+
+  return plans.flatMap((plan) => {
+    const project = projects.find((item) => item.slug === plan.data.project);
+
+    return project
+      ? [{
+          params: { slug: project.slug },
+          props: { project, plan }
+        }]
+      : [];
+  });
+}
+
+const { project, plan } = Astro.props;
+const { Content, headings } = await render(plan);
+const basePath = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={`${plan.data.title} | 策划案`} description={`${project.title} 的游戏策划案`}>
+  <article class="plan-page">
+    <a class="back-link" href={`${basePath}projects/${project.slug}/`}>返回项目详情</a>
+
+    <header class="plan-header panel">
+      <div>
+        <p class="eyebrow">Game Design Document</p>
+        <h1>{plan.data.title}</h1>
+        <p class="lead">{project.title}</p>
+      </div>
+
+      <dl class="plan-meta" aria-label="策划案信息">
+        <div>
+          <dt>版本</dt>
+          <dd>{plan.data.version}</dd>
+        </div>
+        <div>
+          <dt>状态</dt>
+          <dd>{plan.data.status ?? "持续更新"}</dd>
+        </div>
+        <div>
+          <dt>更新时间</dt>
+          <dd>{plan.data.updatedAt}</dd>
+        </div>
+      </dl>
+    </header>
+
+    <div class="plan-layout">
+      <aside class="plan-toc panel">
+        <p class="eyebrow">Contents</p>
+        <nav aria-label="策划案目录">
+          {headings
+            .filter((heading) => heading.depth <= 2)
+            .map((heading) => <a class={`depth-${heading.depth}`} href={`#${heading.slug}`}>{heading.text}</a>)}
+        </nav>
+      </aside>
+
+      <section class="plan-content panel">
+        <Content />
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .plan-page {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .back-link {
+    color: var(--accent-strong);
+    font-weight: 700;
+  }
+
+  .plan-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: clamp(1.4rem, 4vw, 2.4rem);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05;
+  }
+
+  .lead {
+    margin: 0.8rem 0 0;
+    color: var(--muted);
+    font-size: 1.1rem;
+  }
+
+  .plan-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(90px, 1fr));
+    gap: 0.8rem;
+    min-width: min(100%, 390px);
+    margin: 0;
+  }
+
+  .plan-meta div {
+    padding: 0.8rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: rgba(102, 179, 255, 0.07);
+  }
+
+  .plan-meta dt {
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
+
+  .plan-meta dd {
+    margin: 0.25rem 0 0;
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .plan-layout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    align-items: start;
+    gap: 1.25rem;
+  }
+
+  .plan-toc {
+    position: sticky;
+    top: 6rem;
+    padding: 1.2rem;
+  }
+
+  .plan-toc nav {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .plan-toc a {
+    color: var(--muted);
+    font-size: 0.94rem;
+  }
+
+  .plan-toc a:hover {
+    color: var(--text);
+  }
+
+  .plan-content {
+    min-width: 0;
+    padding: clamp(1.2rem, 4vw, 2.4rem);
+  }
+
+  .plan-content :global(h1),
+  .plan-content :global(h2) {
+    margin: 2rem 0 0.8rem;
+    color: var(--text);
+    font-size: 1.55rem;
+  }
+
+  .plan-content :global(h1:first-of-type),
+  .plan-content :global(h2:first-of-type) {
+    margin-top: 0;
+  }
+
+  .plan-content :global(p),
+  .plan-content :global(li) {
+    color: var(--muted);
+  }
+
+  .plan-content :global(ol),
+  .plan-content :global(ul) {
+    padding-left: 1.4rem;
+  }
+
+  .plan-content :global(li + li) {
+    margin-top: 0.45rem;
+  }
+
+  @media (max-width: 800px) {
+    .plan-header,
+    .plan-layout {
+      grid-template-columns: 1fr;
+      display: grid;
+    }
+
+    .plan-meta {
+      min-width: 0;
+    }
+
+    .plan-toc {
+      position: static;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .plan-meta {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

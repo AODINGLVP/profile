@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import projects from "../data/projects.json";
+import analyses from "../data/analyses.json";
 ---
 
 <BaseLayout title="项目列表 | 游戏开发作品集">
@@ -17,6 +18,18 @@ import projects from "../data/projects.json";
   <section class="project-grid">
     {projects.map((project) => <ProjectCard {...project} />)}
   </section>
+
+  <section class="analysis-section">
+    <div class="section-heading">
+      <p class="eyebrow">Game Design Analyses</p>
+      <h2 class="section-title">游戏设计与系统拆解</h2>
+      <p class="section-copy">对商业游戏的核心循环、系统构成、设计冲突与改进方向进行结构化分析。</p>
+    </div>
+
+    <div class="analysis-grid">
+      {analyses.map((analysis) => <ProjectCard {...analysis} />)}
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -27,9 +40,26 @@ import projects from "../data/projects.json";
     margin-top: 1.5rem;
   }
 
+  .analysis-section {
+    margin-top: 3rem;
+  }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: calc((100% - 1.25rem) / 2);
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
   @media (max-width: 900px) {
-    .project-grid {
+    .project-grid,
+    .analysis-grid {
       grid-template-columns: 1fr;
+    }
+
+    .analysis-grid {
+      max-width: none;
     }
   }
 </style>

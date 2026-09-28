@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "no-orcs-system-analysis",
+    "title": "《这里没有兽人》系统拆解",
+    "description": "围绕建筑布局、大规模自动战斗与抽卡构筑三项核心玩法，对人类种族的局内外系统、核心冲突及优化思路进行拆解分析。",
+    "techStack": ["游戏系统拆解", "建筑布局", "抽卡构筑", "自动战斗"],
+    "image": "/analyses/no-orcs-system-analysis/assets/04-layout-overview.png",
+    "href": "analyses/no-orcs-system-analysis/",
+    "category": "Game Design Analysis",
+    "linkLabel": "阅读拆解案"
+  }
+]

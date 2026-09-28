@@ -3,12 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { siteConfig } from "../consts";
 import ProjectCard from "../components/ProjectCard.astro";
 import projects from "../data/projects.json";
+import analyses from "../data/analyses.json";
 ---
 
 <BaseLayout>
   <section class="hero panel">
     <div>
-      <p class="eyebrow">Game Programming Portfolio</p>
+      <p class="eyebrow">Game Development Portfolio</p>
       <h1>{siteConfig.name}</h1>
       <p class="bio">
         华威大学游戏工程硕士，专注于游戏客户端开发与图形技术。主要使用 C++、UE5 和 DirectX 进行开发，
@@ -22,8 +23,8 @@ import projects from "../data/projects.json";
     <div class="hero-note">
       <p class="eyebrow">Projects</p>
       <p class="section-copy">
-        本页面展示我的主要游戏开发项目，包括 UE5 游戏系统开发、DirectX 12 渲染演示以及软件光栅化器优化等。
-        每个项目页面包含技术实现说明、核心功能介绍以及相关演示视频。
+        本页面展示我的主要游戏开发项目与游戏设计分析，包括 UE5 游戏系统开发、实时渲染、性能优化和系统拆解。
+        每项作品包含技术实现、核心功能或设计分析等详细内容。
       </p>
     </div>
   </section>
@@ -40,6 +41,20 @@ import projects from "../data/projects.json";
 
     <div class="project-grid">
       {projects.map((project) => <ProjectCard {...project} />)}
+    </div>
+  </section>
+
+  <section class="home-section" id="analyses">
+    <div class="section-heading">
+      <p class="eyebrow">Game Design Analyses</p>
+      <h2 class="section-title">游戏设计与系统拆解</h2>
+      <p class="section-copy">
+        从核心玩法支柱、系统结构和玩家体验出发，分析游戏机制之间的关系、设计冲突与可能的优化方向。
+      </p>
+    </div>
+
+    <div class="analysis-grid">
+      {analyses.map((analysis) => <ProjectCard {...analysis} />)}
     </div>
   </section>
 </BaseLayout>
@@ -104,10 +119,22 @@ import projects from "../data/projects.json";
     margin-top: 1.5rem;
   }
 
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: calc((100% - 1.25rem) / 2);
+    margin-top: 1.5rem;
+  }
+
   @media (max-width: 900px) {
     .hero,
-    .project-grid {
+    .project-grid,
+    .analysis-grid {
       grid-template-columns: 1fr;
+    }
+
+    .analysis-grid {
+      max-width: none;
     }
   }
 </style>

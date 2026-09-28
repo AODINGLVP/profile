@@ -2,15 +2,21 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import projects from "../../data/projects.json";
 import { getBilibiliEmbedUrl } from "../../utils/bilibili";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
+  const plans = await getCollection("plans");
+
   return projects.map((project) => ({
     params: { slug: project.slug },
-    props: { project }
+    props: {
+      project,
+      hasPlan: plans.some((plan) => plan.data.project === project.slug)
+    }
   }));
 }
 
-const { project } = Astro.props;
+const { project, hasPlan } = Astro.props;
 const basePath = import.meta.env.BASE_URL;
 const imageSrc = `${basePath}${project.image.replace(/^\//, "")}`;
 const bilibiliEmbedUrl = getBilibiliEmbedUrl(project.bilibiliLink);
@@ -31,6 +37,7 @@ const bilibiliEmbedUrl = getBilibiliEmbedUrl(project.bilibiliLink);
         <div class="action-row">
           <a href={project.githubLink} target="_blank" rel="noreferrer">GitHub 仓库</a>
           {project.bilibiliLink && <a href={project.bilibiliLink} target="_blank" rel="noreferrer">Bilibili 视频</a>}
+          {hasPlan && <a href={`${basePath}projects/${project.slug}/plan/`}>游戏策划案</a>}
         </div>
       </div>
 
