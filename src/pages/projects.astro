@@ -3,32 +3,33 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import projects from "../data/projects.json";
 import analyses from "../data/analyses.json";
+
+const featuredOrder = [
+  "serious-jelly-battle",
+  "no-orcs-system-analysis",
+  "wm9m6-card-strategy-demo",
+  "level2-gas-fps-demo"
+];
+const portfolioItems = [...projects, ...analyses].sort((a, b) => {
+  const aIndex = featuredOrder.indexOf(a.slug);
+  const bIndex = featuredOrder.indexOf(b.slug);
+  return (aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex)
+    - (bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex);
+});
 ---
 
 <BaseLayout title="项目列表 | 游戏开发作品集">
   <section class="section-heading">
     <p class="eyebrow">Projects</p>
-    <h1 class="section-title">Game Development Projects</h1>
+    <h1 class="section-title">Game Development & Design Works</h1>
     <p class="section-copy">
-      本页面展示我的游戏开发与图形技术相关项目，包括 UE5 游戏系统开发、DirectX 12 渲染演示以及
-      CPU 软件光栅化器优化等。每个项目页面包含技术实现说明、核心功能介绍以及代码仓库和演示视频链接。
+      本页面汇总游戏开发、系统设计和图形技术相关作品。每项作品包含技术实现、核心功能、设计分析、
+      代码仓库或演示视频等详细内容。
     </p>
   </section>
 
   <section class="project-grid">
-    {projects.map((project) => <ProjectCard {...project} />)}
-  </section>
-
-  <section class="analysis-section">
-    <div class="section-heading">
-      <p class="eyebrow">Game Design Analyses</p>
-      <h2 class="section-title">游戏设计与系统拆解</h2>
-      <p class="section-copy">对商业游戏的核心循环、系统构成、设计冲突与改进方向进行结构化分析。</p>
-    </div>
-
-    <div class="analysis-grid">
-      {analyses.map((analysis) => <ProjectCard {...analysis} />)}
-    </div>
+    {portfolioItems.map((item) => <ProjectCard {...item} />)}
   </section>
 </BaseLayout>
 
@@ -40,26 +41,9 @@ import analyses from "../data/analyses.json";
     margin-top: 1.5rem;
   }
 
-  .analysis-section {
-    margin-top: 3rem;
-  }
-
-  .analysis-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    max-width: calc((100% - 1.25rem) / 2);
-    gap: 1.25rem;
-    margin-top: 1.5rem;
-  }
-
   @media (max-width: 900px) {
-    .project-grid,
-    .analysis-grid {
+    .project-grid {
       grid-template-columns: 1fr;
-    }
-
-    .analysis-grid {
-      max-width: none;
     }
   }
 </style>
